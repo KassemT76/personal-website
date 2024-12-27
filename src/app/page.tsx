@@ -63,7 +63,8 @@ export default function Home() {
               id="uniCard"
               className="flex flex-col bg-gray-100 px-2 py-2 rounded-lg w-full my-4 gap-2 shadow-lg"
             >
-              <div className="flex flex-row items-center justify-between gap-2">
+              <CollapsibleTrigger asChild>
+              <div className="flex flex-row items-center justify-between gap-2 hover:cursor-pointer">
                 <div id="uni" className="flex flex-row items-center justify-between w-full">
                   <div id="leftUni" className="flex flex-row gap-4 items-center">
                     <Image
@@ -82,7 +83,6 @@ export default function Home() {
                     <h1 className="text-xs font-semibold">September 2023 - April 2028</h1>
                   </div>
                 </div>
-                <CollapsibleTrigger asChild>
                   <Button
                     variant="ghost"
                     size="sm"
@@ -91,9 +91,8 @@ export default function Home() {
                     <ChevronsUpDown className="h-4 w-4" />
                     <span className="sr-only">Toggle</span>
                   </Button>
-                </CollapsibleTrigger>
               </div>
-
+              </CollapsibleTrigger>
               <CollapsibleContent className="CollapsibleContent space-y-2">
                 <ul className="mx-10 list-disc list-inside text-gray-800 text-sm space-y-2">
                   <li>
@@ -125,36 +124,37 @@ export default function Home() {
             id="uniCard"
             className="flex flex-col bg-gray-100 px-2 py-2 rounded-lg w-full my-4 gap-2 shadow-lg"
           >
-            <div className="flex flex-row items-center justify-between gap-2">
-              <div id="uni" className="flex flex-row items-center justify-between w-full">
-                <div id="leftUni" className="flex flex-row gap-4 items-center">
-                  <Image
-                    src="https://marketplace.canva.com/EAGFNmKiY9s/1/0/1600w/canva-blue-soccer-sports-logo-rQrjayPQsF0.jpg"
-                    alt="alt"
-                    width={40}
-                    height={40}
-                    className="rounded-3xl"
-                  />
-                  <div id="nameDegree" className="flex flex-col">
-                    <h1 className="text-sm font-semibold">Gulf Legacy Football</h1>
-                    <h1 className="text-xs">Lead Web Developer</h1>
+              <CollapsibleTrigger asChild>
+              <div className="flex flex-row items-center justify-between gap-2 hover:cursor-pointer">
+                <div id="uni" className="flex flex-row items-center justify-between w-full">
+                  <div id="leftUni" className="flex flex-row gap-4 items-center">
+                    <Image
+                      src="https://marketplace.canva.com/EAGFNmKiY9s/1/0/1600w/canva-blue-soccer-sports-logo-rQrjayPQsF0.jpg"
+                      alt="alt"
+                      width={40}
+                      height={40}
+                      className="rounded-3xl"
+                    />
+                    <div id="nameDegree" className="flex flex-col">
+                      <h1 className="text-sm font-semibold">Gulf Legacy Football</h1>
+                      <h1 className="text-xs">Lead Web Developer</h1>
+                    </div>
+                  </div>
+                  <div id="date" className="ml-auto">
+                    <h1 className="text-xs font-semibold">June 2024 – Present</h1>
                   </div>
                 </div>
-                <div id="date" className="ml-auto">
-                  <h1 className="text-xs font-semibold">June 2024 – Present</h1>
-                </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="ml-2 shrink-0 flex justify-center items-center"
+                  >
+                    <ChevronsUpDown className="h-4 w-4" />
+                    <span className="sr-only">Toggle</span>
+                  </Button>
+                
               </div>
-              <CollapsibleTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="ml-2 shrink-0 flex justify-center items-center"
-                >
-                  <ChevronsUpDown className="h-4 w-4" />
-                  <span className="sr-only">Toggle</span>
-                </Button>
-              </CollapsibleTrigger>
-            </div>
+            </CollapsibleTrigger>
             <CollapsibleContent className="CollapsibleContent space-y-2">
               <ul className="mx-10 list-disc list-inside text-gray-800 text-sm space-y-2">
                 <li>
@@ -178,7 +178,8 @@ export default function Home() {
             id="uniCard"
             className="flex flex-col bg-gray-100 px-2 py-2 rounded-lg w-full my-4 gap-2 shadow-lg"
           >
-            <div className="flex flex-row items-center justify-between gap-2">
+            <CollapsibleTrigger asChild>
+            <div className="flex flex-row items-center justify-between gap-2 hover:cursor-pointer">
               <div id="uni" className="flex flex-row items-center justify-between w-full">
                 <div id="leftUni" className="flex flex-row gap-4 items-center">
                   <Image
@@ -197,7 +198,6 @@ export default function Home() {
                   <h1 className="text-xs font-semibold">June 2022 – August 2022</h1>
                 </div>
               </div>
-              <CollapsibleTrigger asChild>
                 <Button
                   variant="ghost"
                   size="sm"
@@ -206,8 +206,9 @@ export default function Home() {
                   <ChevronsUpDown className="h-4 w-4" />
                   <span className="sr-only">Toggle</span>
                 </Button>
-              </CollapsibleTrigger>
             </div>
+            </CollapsibleTrigger>
+
             <CollapsibleContent className="CollapsibleContent space-y-2">
               <ul className="mx-10 list-disc list-inside text-gray-800 text-sm space-y-2">
                 <li>
@@ -224,13 +225,15 @@ export default function Home() {
           </div>
         </Collapsible>
         </BlurFade>
+
         <BlurFade delay={1} inView>
         <Collapsible>
           <div
             id="uniCard"
             className="flex flex-col bg-gray-100 px-2 py-2 rounded-lg w-full my-4 gap-2 shadow-lg"
           >
-            <div className="flex flex-row items-center justify-between gap-2">
+            <CollapsibleTrigger asChild>
+            <div className="flex flex-row items-center justify-between gap-2 hover:cursor-pointer">
               <div id="uni" className="flex flex-row items-center justify-between w-full">
                 <div id="leftUni" className="flex flex-row gap-4 items-center">
                   <Image
@@ -249,7 +252,6 @@ export default function Home() {
                   <h1 className="text-xs font-semibold">Sept 2022 – March 2023</h1>
                 </div>
               </div>
-              <CollapsibleTrigger asChild>
                 <Button
                   variant="ghost"
                   size="sm"
@@ -258,8 +260,8 @@ export default function Home() {
                   <ChevronsUpDown className="h-4 w-4" />
                   <span className="sr-only">Toggle</span>
                 </Button>
-              </CollapsibleTrigger>
             </div>
+            </CollapsibleTrigger>
             <CollapsibleContent className="CollapsibleContent space-y-2">
               <ul className="mx-10 list-disc list-inside text-gray-800 text-sm space-y-2">
                 <li>
