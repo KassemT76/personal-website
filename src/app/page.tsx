@@ -1,9 +1,12 @@
 'use client'
 
 import { Badge } from "@/components/ui/badge";
+import BlurFade from "@/components/ui/blur-fade";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle,CardContent} from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import ShineBorder from "@/components/ui/shine-border";
+import TypingAnimation from "@/components/ui/typing-animation";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@radix-ui/react-collapsible";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@radix-ui/react-tabs";
 import {ChevronsUpDown, Github} from "lucide-react";
@@ -13,32 +16,110 @@ import Link from "next/link";
 export default function Home() {
 
   return (
-    <div className="flex flex-col bg-muted min-w-[800px]">
+    <div className="flex items-center justify-center">
+        <div className="flex flex-col bg-muted min-w-[800px] max-w-[1000px]">
       <div id="title" className="flex flex-row justify-between align-middle py-10 px-10 mt-10 ">
         <div id="greeting" className="flex flex-col align-middle justify-center">
-          <p className="text-6sm">Hello my name is,</p>
-          <h1 className="text-6xl">Kassem Taha</h1>
+          <TypingAnimation duration={20}className="text-6sm">Hello my name is,</TypingAnimation>
+          <TypingAnimation delay={200} duration={75} className="text-6xl">Kassem Taha</TypingAnimation>
         </div>
 
-        <div id="picturemaybe">
-          <Image className="rounded-full border-solid border-cyan-400 border-spacing-4 border-8 shadow-lg" src="/kassem.jpg" alt="alt" width={200} height={200} />
+        <div id="picturemaybe" >
+          <BlurFade delay={1}>
+            <ShineBorder
+            className="relative flex h-[350px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
+            color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+          >
+            <Image className="border-solid border-cyan-400 border-3 shadow-lg" src="/kassem.jpg" alt="alt" width={200} height={200} />
+            </ShineBorder>
+          </BlurFade>
         </div>
       </div>
 
       <div id="about" className="flex flex-col py-10 px-10">
-        <h1 className="text-3xl font-bold flex flex-row align-baseline">
-          About Me
-        </h1>
-        <p className="text-sm">
-I’m Kassem Taha, a computer science student at Carleton University with a strong passion for creating impactful software solutions. I’ve had the opportunity to develop and launch projects ranging from high-performance web applications using NextJS and Firebase to iOS apps with Swift. My hands-on experiences have not only sharpened my technical skills but also fueled my love for problem-solving and innovation. As a natural leader, I’ve led competitive robotics teams to success and enjoy mentoring aspiring programmers. With a strong academic foundation and a commitment to continuous growth, I’m excited to tackle new challenges and make meaningful contributions to the tech world.
-</p>
-
+        <BlurFade delay={1}>
+          <h1 className="text-3xl font-bold flex flex-row align-baseline">
+            About Me
+          </h1>
+        </BlurFade>
+        
+        <BlurFade delay={1.25}>
+          <p className="text-sm">
+          I’m Kassem Taha, a computer science student at Carleton University with a strong passion for creating impactful software solutions. I’ve had the opportunity to develop and launch projects ranging from high-performance web applications using NextJS and Firebase to iOS apps with Swift. My hands-on experiences have not only sharpened my technical skills but also fueled my love for problem-solving and innovation. As a natural leader, I’ve led competitive robotics teams to success and enjoy mentoring aspiring programmers. With a strong academic foundation and a commitment to continuous growth, I’m excited to tackle new challenges and make meaningful contributions to the tech world.
+          </p>
+        </BlurFade>
       </div>
 
       <div id="education" className="flex flex-col py-10 px-10">
-        <h1 className="text-3xl font-bold">
-          Education
-        </h1>
+        <BlurFade delay={1}>
+          <h1 className="text-3xl font-bold">
+            Education
+          </h1>
+        </BlurFade>
+
+        <BlurFade delay={1.25}>
+          <Collapsible>
+            <div
+              id="uniCard"
+              className="flex flex-col bg-gray-100 px-2 py-2 rounded-lg w-full my-4 gap-2 shadow-lg"
+            >
+              <div className="flex flex-row items-center justify-between gap-2">
+                <div id="uni" className="flex flex-row items-center justify-between w-full">
+                  <div id="leftUni" className="flex flex-row gap-4 items-center">
+                    <Image
+                      src="https://carleton.ca/brand/wp-content/uploads/social-media-sample-red-247w-1.png"
+                      alt="alt"
+                      width={40}
+                      height={40}
+                      className="rounded-3xl"
+                    />
+                    <div id="nameDegree" className="flex flex-col">
+                      <h1 className="text-sm font-semibold">Carleton University</h1>
+                      <h1 className="text-xs">Bachelor of Computer Science: Software Engineering Stream</h1>
+                    </div>
+                  </div>
+                  <div id="date" className="ml-auto">
+                    <h1 className="text-xs font-semibold">September 2023 - April 2028</h1>
+                  </div>
+                </div>
+                <CollapsibleTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="ml-2 shrink-0 flex justify-center items-center"
+                  >
+                    <ChevronsUpDown className="h-4 w-4" />
+                    <span className="sr-only">Toggle</span>
+                  </Button>
+                </CollapsibleTrigger>
+              </div>
+
+              <CollapsibleContent className="CollapsibleContent space-y-2">
+                <ul className="mx-10 list-disc list-inside text-gray-800 text-sm space-y-2">
+                  <li>
+                    <span className="font-semibold">CGPA:</span> 11.5/12 (3.8/4.0) (A)
+                  </li>
+                  <li>
+                    <span className="font-semibold">Awards:</span> Lester B Pearson Award, President’s Scholar
+                  </li>
+                  <li>
+                    <span className="font-semibold">Coursework:</span> Computer Architecture, Comparison of Learning Algorithms, Computational Theory
+                  </li>
+                </ul>
+              </CollapsibleContent>
+            </div>
+          </Collapsible>
+        </BlurFade>
+      </div>
+
+      <div id="experience" className="flex flex-col py-10 px-10">
+        <BlurFade delay={0.25} inView>
+          <h1 className="text-3xl font-bold">
+            Experience
+          </h1>
+        </BlurFade>
+
+        <BlurFade delay={0.5} inView>
         <Collapsible>
           <div
             id="uniCard"
@@ -48,19 +129,19 @@ I’m Kassem Taha, a computer science student at Carleton University with a stro
               <div id="uni" className="flex flex-row items-center justify-between w-full">
                 <div id="leftUni" className="flex flex-row gap-4 items-center">
                   <Image
-                    src="https://carleton.ca/brand/wp-content/uploads/social-media-sample-red-247w-1.png"
+                    src="https://marketplace.canva.com/EAGFNmKiY9s/1/0/1600w/canva-blue-soccer-sports-logo-rQrjayPQsF0.jpg"
                     alt="alt"
                     width={40}
                     height={40}
                     className="rounded-3xl"
                   />
                   <div id="nameDegree" className="flex flex-col">
-                    <h1 className="text-sm font-semibold">Carleton University</h1>
-                    <h1 className="text-xs">Bachelor of Computer Science: Software Engineering Stream</h1>
+                    <h1 className="text-sm font-semibold">Gulf Legacy Football</h1>
+                    <h1 className="text-xs">Lead Web Developer</h1>
                   </div>
                 </div>
                 <div id="date" className="ml-auto">
-                  <h1 className="text-xs font-semibold">September 2023 - April 2028</h1>
+                  <h1 className="text-xs font-semibold">June 2024 – Present</h1>
                 </div>
               </div>
               <CollapsibleTrigger asChild>
@@ -74,200 +155,157 @@ I’m Kassem Taha, a computer science student at Carleton University with a stro
                 </Button>
               </CollapsibleTrigger>
             </div>
-
             <CollapsibleContent className="CollapsibleContent space-y-2">
               <ul className="mx-10 list-disc list-inside text-gray-800 text-sm space-y-2">
                 <li>
-                  <span className="font-semibold">CGPA:</span> 11.5/12 (3.8/4.0) (A)
+                  Developed landing page, Firebase database, and Stripe integration using NextJS, enabling seamless user registration and access to standings and schedules.
                 </li>
                 <li>
-                  <span className="font-semibold">Awards:</span> Lester B Pearson Award, President’s Scholar
+                  Created results and standings pages providing accurate match outcomes and team rankings with quick response times.
                 </li>
                 <li>
-                  <span className="font-semibold">Coursework:</span> Computer Architecture, Comparison of Learning Algorithms, Computational Theory
+                  Optimized front-end performance for enhanced user experience.
                 </li>
               </ul>
             </CollapsibleContent>
           </div>
         </Collapsible>
+        </BlurFade>
 
-      </div>
-
-      <div id="experience" className="flex flex-col py-10 px-10">
-        <h1 className="text-3xl font-bold">
-          Experience
-        </h1>
+        <BlurFade delay={0.75} inView>
         <Collapsible>
-  <div
-    id="uniCard"
-    className="flex flex-col bg-gray-100 px-2 py-2 rounded-lg w-full my-4 gap-2 shadow-lg"
-  >
-    <div className="flex flex-row items-center justify-between gap-2">
-      <div id="uni" className="flex flex-row items-center justify-between w-full">
-        <div id="leftUni" className="flex flex-row gap-4 items-center">
-          <Image
-            src="https://marketplace.canva.com/EAGFNmKiY9s/1/0/1600w/canva-blue-soccer-sports-logo-rQrjayPQsF0.jpg"
-            alt="alt"
-            width={40}
-            height={40}
-            className="rounded-3xl"
-          />
-          <div id="nameDegree" className="flex flex-col">
-            <h1 className="text-sm font-semibold">Gulf Legacy Football</h1>
-            <h1 className="text-xs">Lead Web Developer</h1>
+          <div
+            id="uniCard"
+            className="flex flex-col bg-gray-100 px-2 py-2 rounded-lg w-full my-4 gap-2 shadow-lg"
+          >
+            <div className="flex flex-row items-center justify-between gap-2">
+              <div id="uni" className="flex flex-row items-center justify-between w-full">
+                <div id="leftUni" className="flex flex-row gap-4 items-center">
+                  <Image
+                    src="https://pbs.twimg.com/profile_images/1282740588631273474/c8Wfx_m9_400x400.jpg"
+                    alt="alt"
+                    width={40}
+                    height={40}
+                    className="rounded-3xl"
+                  />
+                  <div id="nameDegree" className="flex flex-col">
+                    <h1 className="text-sm font-semibold">Our Wave Hub</h1>
+                    <h1 className="text-xs">iOS Developer Intern</h1>
+                  </div>
+                </div>
+                <div id="date" className="ml-auto">
+                  <h1 className="text-xs font-semibold">June 2022 – August 2022</h1>
+                </div>
+              </div>
+              <CollapsibleTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="ml-2 shrink-0 flex justify-center items-center"
+                >
+                  <ChevronsUpDown className="h-4 w-4" />
+                  <span className="sr-only">Toggle</span>
+                </Button>
+              </CollapsibleTrigger>
+            </div>
+            <CollapsibleContent className="CollapsibleContent space-y-2">
+              <ul className="mx-10 list-disc list-inside text-gray-800 text-sm space-y-2">
+                <li>
+                  Received hands-on training in design thinking, entrepreneurial frameworks, and user journey mapping.
+                </li>
+                <li>
+                  Developed an iOS app using Swift and Xcode, integrating Google Firebase.
+                </li>
+                <li>
+                  Designed a user-friendly interface to improve engagement and retention.
+                </li>
+              </ul>
+            </CollapsibleContent>
           </div>
-        </div>
-        <div id="date" className="ml-auto">
-          <h1 className="text-xs font-semibold">June 2024 – Present</h1>
-        </div>
-      </div>
-      <CollapsibleTrigger asChild>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="ml-2 shrink-0 flex justify-center items-center"
-        >
-          <ChevronsUpDown className="h-4 w-4" />
-          <span className="sr-only">Toggle</span>
-        </Button>
-      </CollapsibleTrigger>
-    </div>
-    <CollapsibleContent className="CollapsibleContent space-y-2">
-      <ul className="mx-10 list-disc list-inside text-gray-800 text-sm space-y-2">
-        <li>
-          Developed landing page, Firebase database, and Stripe integration using NextJS, enabling seamless user registration and access to standings and schedules.
-        </li>
-        <li>
-          Created results and standings pages providing accurate match outcomes and team rankings with quick response times.
-        </li>
-        <li>
-          Optimized front-end performance for enhanced user experience.
-        </li>
-      </ul>
-    </CollapsibleContent>
-  </div>
-</Collapsible>
-
-<Collapsible>
-  <div
-    id="uniCard"
-    className="flex flex-col bg-gray-100 px-2 py-2 rounded-lg w-full my-4 gap-2 shadow-lg"
-  >
-    <div className="flex flex-row items-center justify-between gap-2">
-      <div id="uni" className="flex flex-row items-center justify-between w-full">
-        <div id="leftUni" className="flex flex-row gap-4 items-center">
-          <Image
-            src="https://pbs.twimg.com/profile_images/1282740588631273474/c8Wfx_m9_400x400.jpg"
-            alt="alt"
-            width={40}
-            height={40}
-            className="rounded-3xl"
-          />
-          <div id="nameDegree" className="flex flex-col">
-            <h1 className="text-sm font-semibold">Our Wave Hub</h1>
-            <h1 className="text-xs">iOS Developer Intern</h1>
+        </Collapsible>
+        </BlurFade>
+        <BlurFade delay={1} inView>
+        <Collapsible>
+          <div
+            id="uniCard"
+            className="flex flex-col bg-gray-100 px-2 py-2 rounded-lg w-full my-4 gap-2 shadow-lg"
+          >
+            <div className="flex flex-row items-center justify-between gap-2">
+              <div id="uni" className="flex flex-row items-center justify-between w-full">
+                <div id="leftUni" className="flex flex-row gap-4 items-center">
+                  <Image
+                    src="https://robotics.nasa.gov/wp-content/uploads/2020/04/vex_robotics_logo.png"
+                    alt="alt"
+                    width={40}
+                    height={40}
+                    className="rounded-3xl"
+                  />
+                  <div id="nameDegree" className="flex flex-col">
+                    <h1 className="text-sm font-semibold">4659 Warrior Robotix</h1>
+                    <h1 className="text-xs">Captain, Lead Programmer</h1>
+                  </div>
+                </div>
+                <div id="date" className="ml-auto">
+                  <h1 className="text-xs font-semibold">Sept 2022 – March 2023</h1>
+                </div>
+              </div>
+              <CollapsibleTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="ml-2 shrink-0 flex justify-center items-center"
+                >
+                  <ChevronsUpDown className="h-4 w-4" />
+                  <span className="sr-only">Toggle</span>
+                </Button>
+              </CollapsibleTrigger>
+            </div>
+            <CollapsibleContent className="CollapsibleContent space-y-2">
+              <ul className="mx-10 list-disc list-inside text-gray-800 text-sm space-y-2">
+                <li>
+                  Led a fledgling team to qualify for provincial competitions, ranking among the top 50 teams in Ontario, Canada.
+                </li>
+                <li>
+                  Spearheaded programming efforts, including the implementation of Odometry, motor control, event handling, and auto-aiming software.
+                </li>
+                <li>
+                  Earned recognition for innovative programming and design during a judge&apos;s interview.
+                </li>
+              </ul>
+            </CollapsibleContent>
           </div>
-        </div>
-        <div id="date" className="ml-auto">
-          <h1 className="text-xs font-semibold">June 2022 – August 2022</h1>
-        </div>
-      </div>
-      <CollapsibleTrigger asChild>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="ml-2 shrink-0 flex justify-center items-center"
-        >
-          <ChevronsUpDown className="h-4 w-4" />
-          <span className="sr-only">Toggle</span>
-        </Button>
-      </CollapsibleTrigger>
-    </div>
-    <CollapsibleContent className="CollapsibleContent space-y-2">
-      <ul className="mx-10 list-disc list-inside text-gray-800 text-sm space-y-2">
-        <li>
-          Received hands-on training in design thinking, entrepreneurial frameworks, and user journey mapping.
-        </li>
-        <li>
-          Developed an iOS app using Swift and Xcode, integrating Google Firebase.
-        </li>
-        <li>
-          Designed a user-friendly interface to improve engagement and retention.
-        </li>
-      </ul>
-    </CollapsibleContent>
-  </div>
-</Collapsible>
-
-<Collapsible>
-  <div
-    id="uniCard"
-    className="flex flex-col bg-gray-100 px-2 py-2 rounded-lg w-full my-4 gap-2 shadow-lg"
-  >
-    <div className="flex flex-row items-center justify-between gap-2">
-      <div id="uni" className="flex flex-row items-center justify-between w-full">
-        <div id="leftUni" className="flex flex-row gap-4 items-center">
-          <Image
-            src="https://robotics.nasa.gov/wp-content/uploads/2020/04/vex_robotics_logo.png"
-            alt="alt"
-            width={40}
-            height={40}
-            className="rounded-3xl"
-          />
-          <div id="nameDegree" className="flex flex-col">
-            <h1 className="text-sm font-semibold">4659 Warrior Robotix</h1>
-            <h1 className="text-xs">Captain, Lead Programmer</h1>
-          </div>
-        </div>
-        <div id="date" className="ml-auto">
-          <h1 className="text-xs font-semibold">Sept 2022 – March 2023</h1>
-        </div>
-      </div>
-      <CollapsibleTrigger asChild>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="ml-2 shrink-0 flex justify-center items-center"
-        >
-          <ChevronsUpDown className="h-4 w-4" />
-          <span className="sr-only">Toggle</span>
-        </Button>
-      </CollapsibleTrigger>
-    </div>
-    <CollapsibleContent className="CollapsibleContent space-y-2">
-      <ul className="mx-10 list-disc list-inside text-gray-800 text-sm space-y-2">
-        <li>
-          Led a fledgling team to qualify for provincial competitions, ranking among the top 50 teams in Ontario, Canada.
-        </li>
-        <li>
-          Spearheaded programming efforts, including the implementation of Odometry, motor control, event handling, and auto-aiming software.
-        </li>
-        <li>
-          Earned recognition for innovative programming and design during a judge&apos;s interview.
-        </li>
-      </ul>
-    </CollapsibleContent>
-  </div>
-</Collapsible>
-
+        </Collapsible>
+        </BlurFade>
 
       </div>
 
       <div id="skills" className="flex flex-col py-10 px-10">
-        <h1 className="text-3xl font-bold">
-          Skills
-        </h1>
-        <div className="flex flex-row gap-4">
-        <Badge>Javascript</Badge> <Badge>Next.js</Badge> <Badge>Java</Badge>  <Badge>Python</Badge> <Badge>C</Badge> <Badge>C++</Badge> <Badge>Swift</Badge>  <Badge>Xcode</Badge> <Badge>SQL</Badge> <Badge>Deno</Badge> <Badge>Node</Badge>  <Badge>Express</Badge>
-        </div>
+        <BlurFade delay={0.25} inView>
+          <h1 className="text-3xl font-bold">
+            Skills
+          </h1>
+        </BlurFade>
+
+        <BlurFade delay={0.5} inView>
+          <div className="flex flex-row gap-4">
+          <Badge>Javascript</Badge> <Badge>Next.js</Badge> <Badge>Java</Badge>  <Badge>Python</Badge> <Badge>C</Badge> <Badge>C++</Badge> <Badge>Swift</Badge>  <Badge>Xcode</Badge> <Badge>SQL</Badge> <Badge>Deno</Badge> <Badge>Node</Badge>  <Badge>Express</Badge>
+          </div>
+        </BlurFade>
       </div>
 
       <div id="projects" className="flex flex-col py-10 px-10 mb-20 justify-center items-center  gap-4 w-full">
-        <h1 className="text-3xl font-bold">
-          Projects
-        </h1>
-        <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-flow-row justify-center items-center gap-4">
+        <BlurFade delay={0.25} inView>
+          <h1 className="text-3xl font-bold">
+            Projects
+          </h1>
+        </BlurFade>
 
+        <div className="grid md:grid-cols-2 sm:grid-cols-1 grid-flow-row justify-center items-center gap-4">
+        <BlurFade delay={0.5} inView>
+        <ShineBorder
+            className="relative flex h-[600px] w-[400px] flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
+            color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+          >
         <Tabs defaultValue="info" className="w-[400px]">
           <Card className="bg-white shadow-md rounded-lg border border-gray-200 h-[600px]">
           <TabsList className="grid w-full grid-cols-2 bg-gray-100 rounded-t-lg">
@@ -345,9 +383,16 @@ I’m Kassem Taha, a computer science student at Carleton University with a stro
             </TabsContent>
           </Card>
         </Tabs>
+        </ShineBorder>
+        </BlurFade>
 
-          <Tabs defaultValue="info" className="w-[400px]">
-          <Card className="bg-white shadow-md rounded-lg border border-gray-200 h-[600px] relative">
+        <BlurFade delay={0.75} inView>
+        <ShineBorder
+            className="relative flex h-[600px] w-[400px] flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
+            color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+          >
+        <Tabs defaultValue="info" className="w-[400px]">
+          <Card className="bg-white shadow-md rounded-lg border border-gray-200 h-[600px]">
             <TabsList className="grid w-full grid-cols-2 bg-gray-100 rounded-t-lg">
               <TabsTrigger
                 value="info"
@@ -425,6 +470,8 @@ I’m Kassem Taha, a computer science student at Carleton University with a stro
             </TabsContent>
           </Card>
         </Tabs>
+        </ShineBorder>
+        </BlurFade>
 
         <Tabs defaultValue="info" className="w-[400px]">
           <Card className="bg-white shadow-md rounded-lg border border-gray-200 h-[600px] relative">
@@ -468,5 +515,8 @@ I’m Kassem Taha, a computer science student at Carleton University with a stro
 
       </div>
     </div>
+    </div>
+    
   );
 }
+
