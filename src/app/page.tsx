@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <div className="flex items-center justify-center">
-        <div className="flex flex-col bg-muted min-w-[800px] max-w-[1000px]">
+        <div className="flex flex-col bg-muted min-w-[400px] max-w-[1000px]">
       <div id="title" className="flex flex-row justify-between align-middle py-10 px-10 mt-10 ">
         <div id="greeting" className="flex flex-col align-middle justify-center">
           <TypingAnimation duration={20}className="text-6sm">Hello my name is,</TypingAnimation>
@@ -27,7 +27,7 @@ export default function Home() {
         <div id="picturemaybe" >
           <BlurFade delay={1}>
             <ShineBorder
-            className="relative flex h-[350px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
+            className="relative flex h-[350px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background shadow-xl"
             color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
           >
             <Image className="border-solid border-cyan-400 border-3 shadow-lg" src="/kassem.jpg" alt="alt" width={200} height={200} />
@@ -226,7 +226,66 @@ export default function Home() {
         </Collapsible>
         </BlurFade>
 
-        <BlurFade delay={1} inView>
+      </div>
+
+      <div id="extracurricular" className="flex flex-col py-10 px-10">
+        <BlurFade delay={0.25} inView>
+          <h1 className="text-3xl font-bold">
+            Extracurricular
+          </h1>
+        </BlurFade>
+
+        <BlurFade delay={0.5} inView>
+        <Collapsible>
+          <div
+            id="uniCard"
+            className="flex flex-col bg-gray-100 px-2 py-2 rounded-lg w-full my-4 gap-2 shadow-lg"
+          >
+            <CollapsibleTrigger asChild>
+              <div className="flex flex-row items-center justify-between gap-2 hover:cursor-pointer">
+                <div id="uni" className="flex flex-row items-center justify-between w-full">
+                  <div id="leftUni" className="flex flex-row gap-4 items-center">
+                    <Image
+                      src="/digitalmoment.jpg"
+                      alt="Digital Moment Logo"
+                      width={40}
+                      height={40}
+                      className="rounded-3xl"
+                    />
+                    <div id="nameDegree" className="flex flex-col">
+                      <h1 className="text-sm font-semibold">Digital Moment</h1>
+                      <h1 className="text-xs">Instructor</h1>
+                    </div>
+                  </div>
+                  <div id="date" className="ml-auto">
+                    <h1 className="text-xs font-semibold">April 2023 – Sept 2023</h1>
+                  </div>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="ml-2 shrink-0 flex justify-center items-center"
+                >
+                  <ChevronsUpDown className="h-4 w-4" />
+                  <span className="sr-only">Toggle</span>
+                </Button>
+              </div>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="CollapsibleContent space-y-2">
+              <ul className="mx-10 list-disc list-inside text-gray-800 text-sm space-y-2">
+                <li>
+                  Instructed HTML and CSS to children aged 9-12, emphasizing critical thinking and problem-solving skills.
+                </li>
+                <li>
+                  Communicated programming concepts to young learners, ensuring they grasped the material effectively, felt confident, and excelled in their skills.
+                </li>
+              </ul>
+            </CollapsibleContent>
+          </div>
+        </Collapsible>
+        </BlurFade>
+        
+        <BlurFade delay={0.75} inView>
         <Collapsible>
           <div
             id="uniCard"
@@ -279,6 +338,9 @@ export default function Home() {
         </Collapsible>
         </BlurFade>
 
+        
+
+
       </div>
 
       <div id="skills" className="flex flex-col py-10 px-10">
@@ -289,20 +351,107 @@ export default function Home() {
         </BlurFade>
 
         <BlurFade delay={0.5} inView>
-          <div className="flex flex-row gap-4">
+          <div className="flex flex-wrap gap-4">
           <Badge>Javascript</Badge> <Badge>Next.js</Badge> <Badge>Java</Badge>  <Badge>Python</Badge> <Badge>C</Badge> <Badge>C++</Badge> <Badge>Swift</Badge>  <Badge>Xcode</Badge> <Badge>SQL</Badge> <Badge>Deno</Badge> <Badge>Node</Badge>  <Badge>Express</Badge>
           </div>
         </BlurFade>
       </div>
 
       <div id="projects" className="flex flex-col py-10 px-10 mb-20 justify-center items-center  gap-4 w-full">
-        <BlurFade delay={0.25} inView>
-          <h1 className="text-3xl font-bold">
-            Projects
-          </h1>
-        </BlurFade>
+        <div className="w-full">
+          <BlurFade delay={0.25} inView>
+            <h1 className="text-3xl font-bold w-full text-left">
+              Projects
+            </h1>
+          </BlurFade>
+        </div>
 
         <div className="grid md:grid-cols-2 sm:grid-cols-1 grid-flow-row justify-center items-center gap-4">
+        <BlurFade delay={0.5} inView>
+        <ShineBorder
+            className="relative flex h-[600px] w-[400px] flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
+            color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+          >
+        <Tabs defaultValue="info" className="w-[400px]">
+          <Card className="bg-white shadow-md rounded-lg border border-gray-200 h-[600px]">
+          <TabsList className="grid w-full grid-cols-2 bg-gray-100 rounded-t-lg">
+            <TabsTrigger
+              value="info"
+              className="text-gray-700 font-medium data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:font-semibold rounded-lg py-2"
+            >
+              Info
+            </TabsTrigger>
+            <TabsTrigger
+              value="details"
+              className="text-gray-700 font-medium data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:font-semibold rounded-lg py-2"
+            >
+              Details
+            </TabsTrigger>
+          </TabsList>
+            <CardHeader className="p-4 border-b border-gray-200">
+              <CardTitle className="text-gray-900 font-semibold text-lg">Graph Pathfinder in C</CardTitle>
+            </CardHeader>
+            <TabsContent value="info">
+              <CardContent className="p-4 space-y-4">
+                <div>
+                  <p className="text-gray-700 font-medium">Timeline</p>
+                  <p className="text-gray-600 text-sm">January 2024 – April 2024</p>
+                </div>
+                <div className="relative w-full max-w-xs mx-auto">
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      <CarouselItem>
+                        <div className="p-1 flex flex-row justify-center items-center">
+                          <Image src="/graph1.png" alt="alt" width={400} height={200} />
+                        </div>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <div className="p-1 flex flex-row justify-center items-center">
+                          <Image src="/graph2.png" alt="alt" width={500} height={300} />
+                        </div>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <div className="p-1 flex flex-row justify-center items-center">
+                          <Image src="/graph3.png" alt="alt" width={500} height={300} />
+                        </div>
+                      </CarouselItem>
+                    </CarouselContent>
+                    <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-gray-200 p-2 rounded-full shadow-md" />
+                    <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-gray-200 p-2 rounded-full shadow-md" />
+                  </Carousel>
+                </div>
+                <div>
+                  <p className="text-gray-700 font-medium">Description</p>
+                  <p className="text-gray-600 text-sm">A C program which creates vertices then matches them to their closest neighbours then displays them using the X11 library.</p>
+                </div>
+              </CardContent>
+            </TabsContent>
+            <TabsContent value="details">
+              <CardContent className="p-4 space-y-4">
+                <div>
+                  <p className="text-gray-700 font-medium">Technologies:</p>
+                  <p className="text-gray-600 text-sm">C, X11</p>
+                </div>
+                <div>
+                  <p className="text-gray-700 font-medium">Details:</p>
+                  <ul className="list-disc pl-5 text-gray-600 text-sm">
+                  <li> Created a program which intakes 2-2000 vertices then matches them to 1-25 neighbours and displays them using graphics created by X11 in under a second using C.</li>
+                  <li> Improved to have no memory leaks and to find closest neighbours in the graph at the most efficeint time complexity.</li>
+                  </ul>
+                </div>
+                <div >
+                  Links:
+                  <Link className="flex flex-row gap-2" href="https://github.com/KassemT76/Graph-Pathfinder">
+                      <Github></Github> https://github.com/KassemT76/Graph-Pathfinder
+                  </Link>
+                </div>
+              </CardContent>
+            </TabsContent>
+          </Card>
+        </Tabs>
+        </ShineBorder>
+        </BlurFade>
+
         <BlurFade delay={0.5} inView>
         <ShineBorder
             className="relative flex h-[600px] w-[400px] flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
@@ -511,11 +660,9 @@ export default function Home() {
           </Card>
         </Tabs>
 
-
         </div>
-        
-
       </div>
+
     </div>
     </div>
     

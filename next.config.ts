@@ -31,6 +31,12 @@ module.exports = {
         port: '',
         search: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'digitalmoment.org',
+        port: '',
+        search: '',
+      },
     ],
   },
 }

@@ -19,6 +19,7 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		screens: {
+			xs: '400px',
   			sm: '640px',
   			md: '904px',
   			lg: '1024px',
